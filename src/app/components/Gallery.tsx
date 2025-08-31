@@ -33,70 +33,61 @@ interface GalleryImage {
   year: string;
 }
 
-// Gallery images from Unsplash - vintage coffee shop and bakery images
+// Gallery images - vintage coffee shop and bakery images
 const galleryImages: GalleryImage[] = [
+  // Coffee category - Three different types of coffee
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Vintage coffee art on wooden table",
+    url: "https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "Rich Espresso Shot",
     category: "coffee",
-    year: "1950s inspired",
+    year: "Traditional brew",
   },
   {
     id: 2,
+    url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "Creamy Cappuccino with Foam Art",
+    category: "coffee",
+    year: "Artisan crafted",
+  },
+  {
+    id: 3,
+    url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "Bold Americano Coffee",
+    category: "coffee",
+    year: "Classic blend",
+  },
+  
+  // Bakery category
+  {
+    id: 4,
     url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     alt: "Nostalgic bakery display with pastries",
     category: "bakery",
     year: "1940s inspired",
   },
   {
-    id: 3,
-    url: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Vintage coffee shop interior",
-    category: "interior",
-    year: "1930s inspired",
-  },
-  {
-    id: 4,
+    id: 5,
     url: "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     alt: "Classic baked goods on display",
     category: "bakery",
     year: "1960s inspired",
   },
   {
-    id: 5,
-    url: "https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Retro coffee brewing methods",
-    category: "coffee",
-    year: "1920s inspired",
-  },
-  {
     id: 6,
-    url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Vintage teacups and coffee service",
-    category: "service",
-    year: "1940s inspired",
-  },
-  {
-    id: 7,
-    url: "https://images.unsplash.com/photo-1490474504059-bf2db5ab2348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Classic breakfast spread with pastries",
-    category: "food",
-    year: "1950s inspired",
-  },
-  {
-    id: 8,
     url: "https://images.unsplash.com/photo-1515215316771-2742baa337f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     alt: "Artisanal bread making process",
     category: "bakery",
     year: "1930s inspired",
   },
+  
+  // Interior category
   {
-    id: 9,
-    url: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Vintage coffee grinder and beans",
-    category: "coffee",
-    year: "1920s inspired",
+    id: 7,
+    url: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "Vintage coffee shop interior",
+    category: "interior",
+    year: "1930s inspired",
   },
 ];
 
@@ -106,14 +97,13 @@ const categories = [
   { id: 'coffee', name: 'Coffee' },
   { id: 'bakery', name: 'Bakery' },
   { id: 'interior', name: 'Interior' },
-  { id: 'food', name: 'Food' },
-  { id: 'service', name: 'Service' },
 ];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredImages, setFilteredImages] = useState(galleryImages);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [animationKey, setAnimationKey] = useState(0);
 
   // Filter images based on category
   useEffect(() => {
@@ -122,30 +112,34 @@ const Gallery = () => {
     } else {
       setFilteredImages(galleryImages.filter(image => image.category === selectedCategory));
     }
+    // Update animation key to force re-animation
+    setAnimationKey(prev => prev + 1);
   }, [selectedCategory]);
 
   // Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
     }
-  }
-};
+  };
 
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut" as const
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut" as const
+      }
     }
-  }
-};  // Open modal with selected image
+  };
+
+  // Open modal with selected image
   const openModal = (image: GalleryImage) => {
     setSelectedImage(image);
     document.body.style.overflow = 'hidden';
@@ -222,11 +216,11 @@ const itemVariants = {
 
         {/* Gallery grid */}
         <motion.div 
+          key={animationKey} // This forces re-animation when category changes
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          animate="visible" // Changed from whileInView to animate
         >
           {filteredImages.map((image) => (
             <motion.div 
