@@ -139,12 +139,14 @@ const HeroSection = () => {
                 Explore Menu
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 border-2 border-amber-700 text-amber-700 rounded-lg font-semibold text-lg hover:bg-amber-700 hover:text-cream-50 transition-all"
-              >
-                Order Online
-              </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.98 }}
+  className="px-8 py-4 border-2 border-amber-700 text-amber-700 rounded-lg font-semibold text-lg 
+             hover:bg-amber-700 hover:text-white transition-all"
+>
+  Order Online
+</motion.button>
+
             </motion.div>
 
             <motion.div 

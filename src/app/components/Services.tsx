@@ -625,17 +625,7 @@ const Services = () => {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-            <div className="text-4xl">🌟</div>
-          </motion.div>
-          // ...existing code...
-          <motion.div 
-            className="absolute -top-6 left-12 opacity-20"
-            animate={{ 
-              y: [-5, 5, -5],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          >
+          
             <div className="text-4xl">🌟</div>
           </motion.div>
         </motion.div>
@@ -645,4 +635,3 @@ const Services = () => {
 };
 
 export default Services;
-// ...existing
