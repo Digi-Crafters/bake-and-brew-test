@@ -42,28 +42,28 @@ const MenuPage = () => {
 
   const menuItems = {
     coffee: [
-      { name: "Classic Espresso", price: "$3.50", description: "Rich, bold shot of pure coffee perfection", icon: "☕" },
-      { name: "Vanilla Latte", price: "$4.75", description: "Smooth espresso with steamed milk and vanilla syrup", icon: "🤍" },
-      { name: "Caramel Macchiato", price: "$5.25", description: "Espresso with vanilla milk and caramel drizzle", icon: "🍯" },
-      { name: "Cappuccino", price: "$4.25", description: "Equal parts espresso, steamed milk, and foam", icon: "☁️" },
-      { name: "Mocha Delight", price: "$5.50", description: "Espresso with chocolate syrup and whipped cream", icon: "🍫" },
-      { name: "Iced Cold Brew", price: "$4.00", description: "Smooth, cold-steeped coffee served over ice", icon: "🧊" }
+      { name: "Classic Espresso", price: "₹3.50", description: "Rich, bold shot of pure coffee perfection", icon: "☕" },
+      { name: "Vanilla Latte", price: "₹4.75", description: "Smooth espresso with steamed milk and vanilla syrup", icon: "🤍" },
+      { name: "Caramel Macchiato", price: "₹5.25", description: "Espresso with vanilla milk and caramel drizzle", icon: "🍯" },
+      { name: "Cappuccino", price: "₹4.25", description: "Equal parts espresso, steamed milk, and foam", icon: "☁️" },
+      { name: "Mocha Delight", price: "₹5.50", description: "Espresso with chocolate syrup and whipped cream", icon: "🍫" },
+      { name: "Iced Cold Brew", price: "₹4.00", description: "Smooth, cold-steeped coffee served over ice", icon: "🧊" }
     ],
     pastries: [
-      { name: "Butter Croissant", price: "$3.25", description: "Flaky, buttery layers of golden perfection", icon: "🥐" },
-      { name: "Chocolate Muffin", price: "$3.75", description: "Rich chocolate muffin with chocolate chips", icon: "🧁" },
-      { name: "Blueberry Scone", price: "$3.50", description: "Fresh blueberries in a tender, crumbly scone", icon: "🫐" },
-      { name: "Cinnamon Roll", price: "$4.25", description: "Warm, gooey cinnamon roll with cream cheese glaze", icon: "🌀" },
-      { name: "Apple Danish", price: "$4.00", description: "Flaky pastry with sweet apple filling", icon: "🍎" },
-      { name: "Strawberry Tart", price: "$4.50", description: "Fresh strawberries on vanilla custard", icon: "🍓" }
+      { name: "Butter Croissant", price: "₹3.25", description: "Flaky, buttery layers of golden perfection", icon: "🥐" },
+      { name: "Chocolate Muffin", price: "₹3.75", description: "Rich chocolate muffin with chocolate chips", icon: "🧁" },
+      { name: "Blueberry Scone", price: "₹3.50", description: "Fresh blueberries in a tender, crumbly scone", icon: "🫐" },
+      { name: "Cinnamon Roll", price: "₹4.25", description: "Warm, gooey cinnamon roll with cream cheese glaze", icon: "🌀" },
+      { name: "Apple Danish", price: "₹4.00", description: "Flaky pastry with sweet apple filling", icon: "🍎" },
+      { name: "Strawberry Tart", price: "₹4.50", description: "Fresh strawberries on vanilla custard", icon: "🍓" }
     ],
     breakfast: [
-      { name: "Avocado Toast", price: "$6.75", description: "Smashed avocado on artisan bread with everything seasoning", icon: "🥑" },
-      { name: "Breakfast Sandwich", price: "$7.25", description: "Egg, cheese, and bacon on a fresh croissant", icon: "🥪" },
-      { name: "Yogurt Parfait", price: "$5.50", description: "Greek yogurt with berries and granola", icon: "🍇" },
-      { name: "Oatmeal Bowl", price: "$4.75", description: "Steel-cut oats with brown sugar and cinnamon", icon: "🥣" },
-      { name: "Bagel & Cream Cheese", price: "$4.25", description: "Fresh bagel with our signature cream cheese", icon: "🥯" },
-      { name: "Acai Bowl", price: "$8.50", description: "Acai blend topped with fresh fruits and granola", icon: "🍌" }
+      { name: "Avocado Toast", price: "₹6.75", description: "Smashed avocado on artisan bread with everything seasoning", icon: "🥑" },
+      { name: "Breakfast Sandwich", price: "₹7.25", description: "Egg, cheese, and bacon on a fresh croissant", icon: "🥪" },
+      { name: "Yogurt Parfait", price: "₹5.50", description: "Greek yogurt with berries and granola", icon: "🍇" },
+      { name: "Oatmeal Bowl", price: "₹4.75", description: "Steel-cut oats with brown sugar and cinnamon", icon: "🥣" },
+      { name: "Bagel & Cream Cheese", price: "₹4.25", description: "Fresh bagel with our signature cream cheese", icon: "🥯" },
+      { name: "Acai Bowl", price: "₹8.50", description: "Acai blend topped with fresh fruits and granola", icon: "🍌" }
     ]
   };
 
@@ -107,7 +107,7 @@ const MenuPage = () => {
           Our <span className="text-orange-700">Delicious</span> Menu
         </h1>
         <p className="text-lg text-amber-800 max-w-2xl mx-auto px-6">
-          Discover our carefully crafted selection of premium coffees and freshly baked treats
+          Discover our carefully crafted selection of premium coffees and .n baked treats
         </p>
       </motion.div>
 
@@ -191,13 +191,13 @@ const MenuPage = () => {
                   {item.price}
                 </span>
                 
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg font-medium text-sm hover:from-amber-700 hover:to-orange-700 transition-all shadow-md"
                 >
                   Add to Cart
-                </motion.button>
+                </motion.button> */}
               </div>
 
               {/* Floating sparkle animation */}
