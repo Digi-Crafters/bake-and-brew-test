@@ -40,7 +40,7 @@ const services = [
       "Custom celebration cakes",
     ],
     color: "from-orange-100 to-amber-200",
-    accentColor: "orange-300",
+    accentColor: "#c69c6d",
   },
   {
     id: 2,
@@ -53,8 +53,8 @@ const services = [
       "Signature espresso blends",
       "Seasonal specialty drinks",
     ],
-    color: "from-amber-100 to-yellow-200",
-    accentColor: "amber-300",
+    color: "from-amber-100 to-amber-200",
+    accentColor: "#b88a5a",
   },
   {
     id: 3,
@@ -67,8 +67,8 @@ const services = [
       "Wedding & celebration cakes",
       "Private cafe rentals",
     ],
-    color: "from-yellow-100 to-orange-200",
-    accentColor: "yellow-300",
+    color: "from-amber-100 to-orange-200",
+    accentColor: "#a97c50",
   },
 ];
 
@@ -278,6 +278,7 @@ const CutePartyHat = () => (
 const Services = () => {
   return (
     <section
+      id="services"
       className={`${playfair.variable} ${cormorant.variable} ${dancingScript.variable} py-20 px-4 md:px-8 lg:px-16 relative overflow-hidden`}
       style={{
         background: "linear-gradient(to bottom, #f8f3e9, #f3ebd7)",
@@ -296,7 +297,7 @@ const Services = () => {
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: "2s" }}
-          className="absolute top-32 right-20 w-12 h-12 bg-yellow-200 rounded-full opacity-15"
+          className="absolute top-32 right-20 w-12 h-12 bg-amber-100 rounded-full opacity-15"
         />
         <motion.div
           variants={floatingVariants}
@@ -414,26 +415,31 @@ const Services = () => {
                 className="overflow-hidden service-card relative"
                 variants={cardHoverVariants}
                 style={{
-                  background: "rgba(255, 252, 245, 0.95)",
+                  background:
+                    "linear-gradient(135deg, #f6eee3 60%, #e8dac1 100%)",
                   borderRadius: "1.5rem",
-                  boxShadow: "0 8px 32px rgba(138, 110, 79, 0.15)",
-                  border: "2px solid rgba(222, 205, 179, 0.3)",
-                  backdropFilter: "blur(10px)",
+                  boxShadow: "0 6px 24px rgba(108, 77, 44, 0.10)",
+                  border: "1.5px solid #e2cfa7",
+                  backdropFilter: "blur(6px)",
                 }}
               >
-                {/* Cute top decoration */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-300 to-transparent opacity-60"></div>
-
-                {/* Enhanced image section with cute illustrations */}
                 <div
-                  className={`h-56 overflow-hidden relative bg-gradient-to-br ${service.color} flex items-center justify-center`}
+                  className={`h-56 overflow-hidden relative bg-gradient-to-br ${service.color
+                    .replace(/yellow-\d{3}/g, "amber-100")
+                    .replace(/orange-100/g, "amber-50")
+                    .replace(/amber-200/g, "amber-100")} flex items-center justify-center`}
+                  style={{
+                    background:
+                      "linear-gradient(120deg, #f3e7d4 60%, #e7d3b3 100%)",
+                    borderBottom: "1px solid #e2cfa7",
+                  }}
                 >
                   {/* Background pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-4 left-4 w-3 h-3 bg-white rounded-full"></div>
-                    <div className="absolute top-8 right-6 w-2 h-2 bg-white rounded-full"></div>
-                    <div className="absolute bottom-6 left-8 w-2 h-2 bg-white rounded-full"></div>
-                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-white rounded-full"></div>
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-4 left-4 w-3 h-3 bg-amber-200 rounded-full"></div>
+                    <div className="absolute top-8 right-6 w-2 h-2 bg-amber-100 rounded-full"></div>
+                    <div className="absolute bottom-6 left-8 w-2 h-2 bg-amber-100 rounded-full"></div>
+                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-amber-200 rounded-full"></div>
                   </div>
 
                   {/* Cute custom illustrations */}
@@ -462,17 +468,25 @@ const Services = () => {
                   {/* Corner decoration */}
                   <div className="absolute bottom-0 right-0">
                     <div
-                      className={`w-16 h-16 bg-${service.accentColor} opacity-20 rounded-tl-full`}
+                      className="w-16 h-16 rounded-tl-full"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #e2cfa7 60%, #d6b98c 100%)",
+                        opacity: 0.13,
+                      }}
                     ></div>
                   </div>
                 </div>
 
                 {/* Enhanced content section */}
-                <div className="p-8 relative">
+                <div className="p-8 relative bg-[#f8f3e9]/80 rounded-b-2xl">
                   {/* Cute title decoration */}
                   <div className="flex items-center mb-4">
                     <motion.div
-                      className={`w-2 h-2 bg-${service.accentColor} rounded-full mr-3`}
+                      className="w-2 h-2 rounded-full mr-3"
+                      style={{
+                        background: service.accentColor,
+                      }}
                       animate={{ scale: [1, 1.5, 1] }}
                       transition={{
                         duration: 2,
@@ -518,34 +532,6 @@ const Services = () => {
                       </motion.li>
                     ))}
                   </ul>
-
-                  {/* Enhanced button */}
-                  {/* <motion.button 
-                    // className={`${cormorant.className} px-8 py-3 text-[#5C4B36] transition-all duration-300 relative overflow-hidden group`}
-                    // style={{
-                    //   border: '2px solid #8C6D4D',
-                    //   borderRadius: '2rem',
-                    //   background: 'transparent',
-                    //   fontSize: '1.1rem',
-                    // }}
-                    // whileHover={{ 
-                    //   scale: 1.05,
-                    //   boxShadow: "0 8px 20px rgba(140, 109, 77, 0.2)"
-                    // }}
-                    // whileTap={{ scale: 0.98 }}
-                    // onMouseOver={(e) => {
-                    //   e.currentTarget.style.background = '#8C6D4D';
-                    //   e.currentTarget.style.color = '#f8f3e9';
-                    // }}
-                    // onMouseOut={(e) => {
-                    //   e.currentTarget.style.background = 'transparent';
-                    //   e.currentTarget.style.color = '#5C4B36';
-                    // }}
-                  >
-                    {/* <span className="relative z-10">Discover More</span> */}
-                  {/* Button shine effect */}
-                  {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div> */}
-                  {/* </motion.button> */}
                 </div>
 
                 {/* Card corner accents */}
@@ -703,7 +689,7 @@ const Services = () => {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-            <div className="text-4xl">🌟</div>
+    <div className="text-4xl">🌟</div>
           </motion.div>
         </motion.div>
       </div>

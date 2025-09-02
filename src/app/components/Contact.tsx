@@ -67,21 +67,32 @@ const Contact = () => {
 
   return (
     <section 
-      id="contact"
+      id="contact-section"
       className={`${cinzel.variable} ${imFellEnglish.variable} ${spectral.variable} relative py-24 overflow-hidden`}
       style={{
-        background: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23433b30' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        backgroundColor: '#F8F4ED',
-        borderTop: '1px solid #D9D0C1',
-        borderBottom: '1px solid #D9D0C1'
+        background: `linear-gradient(to bottom, #f8f4ed, #f1e9dd)`,
+        borderTop: '2px solid #d9c8b4',
+        borderBottom: '2px solid #d9c8b4'
       }}
     >
+      {/* Coffee bean pattern background */}
+      <div className="absolute inset-0 opacity-10">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="coffee-beans" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M30,50 Q40,30 50,50 T70,50 Q80,30 90,50 T110,50 Q120,30 130,50 T150,50" stroke="#5d4037" strokeWidth="2" fill="none" />
+              <path d="M20,70 Q30,50 40,70 T60,70 Q70,50 80,70 T100,70 Q110,50 120,70 T140,70" stroke="#5d4037" strokeWidth="2" fill="none" />
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#coffee-beans)" />
+        </svg>
+      </div>
+      
       {/* Decorative elements */}
       <div className="absolute top-0 w-full h-8" style={{ 
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%23433b30' fill-opacity='0.1'/%3E%3C/svg%3E\")",
+        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%235d4037' fill-opacity='0.15'/%3E%3C/svg%3E\")",
         backgroundSize: "88px 12px",
         backgroundRepeat: "repeat-x",
-        opacity: 0.5,
       }}></div>
       
       <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
@@ -102,7 +113,7 @@ const Contact = () => {
                 whileInView={{ width: "100px" }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="h-[1px] bg-amber-900/40 absolute top-full mt-4"
+                className="h-[1px] bg-amber-700/60 absolute top-full mt-4"
               ></motion.div>
               
               <motion.span 
@@ -112,11 +123,11 @@ const Contact = () => {
                 Reach Out
               </motion.span>
               
-              <h2 className={`${cinzel.className} text-3xl md:text-4xl lg:text-5xl font-semibold text-stone-800 mb-2`}>
+              <h2 className={`${cinzel.className} text-3xl md:text-4xl lg:text-5xl font-semibold text-[#5d4037] mb-2`}>
                 Correspondence
               </h2>
               
-              <p className={`${spectral.className} text-stone-600 mt-6 text-lg leading-relaxed`}>
+              <p className={`${spectral.className} text-[#6d4c41] mt-6 text-lg leading-relaxed`}>
                 We value the art of conversation and meaningful connections. 
                 Should you wish to reach us, here are the ways of proper contact.
               </p>
@@ -135,16 +146,16 @@ const Contact = () => {
                 className="flex items-start space-x-6" 
                 variants={scaleIn}
               >
-                <div className="bg-amber-50 p-3 rounded-full border border-amber-100 shadow-inner">
+                <div className="bg-amber-100 p-3 rounded-full border border-amber-200 shadow-sm">
                   <svg className="w-6 h-6 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`${cinzel.className} text-xl font-medium text-stone-700 mb-1`}>Our Establishment</h3>
-                  <p className={`${spectral.className} text-stone-600`}>42 Artisan Avenue, Old Town District</p>
-                  <p className={`${spectral.className} text-stone-600`}>Craftshire, CS 12345</p>
+                  <h3 className={`${cinzel.className} text-xl font-medium text-[#5d4037] mb-1`}>Our Establishment</h3>
+                  <p className={`${spectral.className} text-[#6d4c41]`}>42 Artisan Avenue, Old Town District</p>
+                  <p className={`${spectral.className} text-[#6d4c41]`}>Craftshire, CS 12345</p>
                 </div>
               </motion.div>
               
@@ -153,15 +164,15 @@ const Contact = () => {
                 className="flex items-start space-x-6" 
                 variants={scaleIn}
               >
-                <div className="bg-amber-50 p-3 rounded-full border border-amber-100 shadow-inner">
+                <div className="bg-amber-100 p-3 rounded-full border border-amber-200 shadow-sm">
                   <svg className="w-6 h-6 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`${cinzel.className} text-xl font-medium text-stone-700 mb-1`}>Hours of Service</h3>
-                  <p className={`${spectral.className} text-stone-600`}>Monday to Friday: 7am - 6pm</p>
-                  <p className={`${spectral.className} text-stone-600`}>Weekends & Holidays: 8am - 4pm</p>
+                  <h3 className={`${cinzel.className} text-xl font-medium text-[#5d4037] mb-1`}>Hours of Service</h3>
+                  <p className={`${spectral.className} text-[#6d4c41]`}>Monday to Friday: 7am - 6pm</p>
+                  <p className={`${spectral.className} text-[#6d4c41]`}>Weekends & Holidays: 8am - 4pm</p>
                 </div>
               </motion.div>
               
@@ -170,15 +181,15 @@ const Contact = () => {
                 className="flex items-start space-x-6" 
                 variants={scaleIn}
               >
-                <div className="bg-amber-50 p-3 rounded-full border border-amber-100 shadow-inner">
+                <div className="bg-amber-100 p-3 rounded-full border border-amber-200 shadow-sm">
                   <svg className="w-6 h-6 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`${cinzel.className} text-xl font-medium text-stone-700 mb-1`}>Telephone</h3>
-                  <p className={`${spectral.className} text-stone-600`}>(555) 123-4567</p>
-                  <p className={`${spectral.className} text-stone-600 italic text-sm`}>For reservations & inquiries</p>
+                  <h3 className={`${cinzel.className} text-xl font-medium text-[#5d4037] mb-1`}>Telephone</h3>
+                  <p className={`${spectral.className} text-[#6d4c41]`}>(555) 123-4567</p>
+                  <p className={`${spectral.className} text-[#6d4c41] italic text-sm`}>For reservations & inquiries</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -205,13 +216,20 @@ const Contact = () => {
                 </svg>
               </div>
               
-              {/* Form container */}
-              <div className="bg-white border border-stone-200 p-8 lg:p-10 rounded shadow-lg relative">
-                <h3 className={`${cinzel.className} text-2xl md:text-3xl font-semibold text-stone-800 mb-6`}>
+              {/* Form container - Updated with theme colors */}
+              <div className="bg-gradient-to-br from-[#f3ebe0] to-[#e8ddd0] border-2 border-amber-200 p-8 lg:p-10 rounded-lg shadow-xl relative overflow-hidden">
+                {/* Vintage paper texture overlay */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDRiZjliIiBzdHJva2Utd2lkdGg9IjAuNSIgZD0iTTAgNjAgNjAgMCBNNjAgNjAgMCAwIiAvPjwvc3ZnPg==')] opacity-20"></div>
+                
+                {/* Coffee stain decorative elements */}
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-amber-900/10 rounded-full blur-lg"></div>
+                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-amber-800/10 rounded-full blur-lg"></div>
+                
+                <h3 className={`${cinzel.className} text-2xl md:text-3xl font-semibold text-[#5d4037] mb-6 relative z-10`}>
                   Send a Message
                 </h3>
                 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="relative z-10">
                   <motion.div 
                     className="space-y-6" 
                     variants={staggerContainer}
@@ -220,14 +238,14 @@ const Contact = () => {
                     <motion.div variants={fadeIn} className="relative">
                       <label 
                         htmlFor="name" 
-                        className={`${spectral.className} text-stone-600 mb-1 block`}
+                        className={`${spectral.className} text-[#5d4037] mb-1 block font-medium`}
                       >
                         Full Name
                       </label>
                       <input 
                         id="name" 
                         type="text" 
-                        className={`w-full px-4 py-3 bg-stone-50 border ${hoverField === 'name' ? 'border-amber-500' : 'border-stone-200'} rounded-sm focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all duration-300 ${spectral.className}`}
+                        className={`w-full px-4 py-3 bg-amber-50/80 border ${hoverField === 'name' ? 'border-amber-600' : 'border-amber-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 ${spectral.className} placeholder-amber-800/40`}
                         onMouseEnter={() => setHoverField('name')}
                         onMouseLeave={() => setHoverField(null)}
                         placeholder="Your distinguished name"
@@ -239,14 +257,14 @@ const Contact = () => {
                     <motion.div variants={fadeIn} className="relative">
                       <label 
                         htmlFor="email" 
-                        className={`${spectral.className} text-stone-600 mb-1 block`}
+                        className={`${spectral.className} text-[#5d4037] mb-1 block font-medium`}
                       >
                         Electronic Mail
                       </label>
                       <input 
                         id="email" 
                         type="email" 
-                        className={`w-full px-4 py-3 bg-stone-50 border ${hoverField === 'email' ? 'border-amber-500' : 'border-stone-200'} rounded-sm focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all duration-300 ${spectral.className}`}
+                        className={`w-full px-4 py-3 bg-amber-50/80 border ${hoverField === 'email' ? 'border-amber-600' : 'border-amber-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 ${spectral.className} placeholder-amber-800/40`}
                         onMouseEnter={() => setHoverField('email')}
                         onMouseLeave={() => setHoverField(null)}
                         placeholder="Your correspondence address"
@@ -258,14 +276,14 @@ const Contact = () => {
                     <motion.div variants={fadeIn} className="relative">
                       <label 
                         htmlFor="message" 
-                        className={`${spectral.className} text-stone-600 mb-1 block`}
+                        className={`${spectral.className} text-[#5d4037] mb-1 block font-medium`}
                       >
                         Your Message
                       </label>
                       <textarea 
                         id="message" 
                         rows={5} 
-                        className={`w-full px-4 py-3 bg-stone-50 border ${hoverField === 'message' ? 'border-amber-500' : 'border-stone-200'} rounded-sm focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all duration-300 ${spectral.className}`}
+                        className={`w-full px-4 py-3 bg-amber-50/80 border ${hoverField === 'message' ? 'border-amber-600' : 'border-amber-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 ${spectral.className} placeholder-amber-800/40`}
                         onMouseEnter={() => setHoverField('message')}
                         onMouseLeave={() => setHoverField(null)}
                         placeholder="Share your thoughts in an eloquent manner..."
@@ -274,23 +292,21 @@ const Contact = () => {
                     </motion.div>
                     
                     {/* Submit Button */}
-                    <motion.div variants={fadeIn}>
+                    <motion.div variants={fadeIn} className="pt-4">
                       <button 
                         type="submit" 
-                        className="group relative inline-flex bg-amber-800 text-white border border-amber-900 px-8 py-3 overflow-hidden transition-all duration-300 hover:bg-amber-700"
-                        style={{
-                          boxShadow: '3px 3px 0px rgba(0,0,0,0.1)',
-                        }}
+                        className="group relative inline-flex items-center justify-center bg-gradient-to-r from-amber-700 to-amber-800 text-white px-8 py-4 overflow-hidden transition-all duration-300 hover:from-amber-800 hover:to-amber-900 rounded-md shadow-lg hover:shadow-xl"
                       >
-                        <span className={`${cinzel.className} relative z-10`}>Contact Us</span>
-                        <span className="absolute bottom-0 left-0 w-0 h-full bg-amber-900 transition-all duration-300 group-hover:w-full"></span>
+                        <span className={`${cinzel.className} relative z-10 text-lg`}>Send Message</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute -inset-1 bg-amber-400/20 rounded-md blur-sm group-hover:blur-md transition-all duration-300"></div>
                       </button>
                       
                       {formSubmitted && (
                         <motion.p 
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className={`${spectral.className} text-amber-600 mt-3 italic`}
+                          className={`${spectral.className} text-amber-700 mt-3 italic`}
                         >
                           Not implemented at this moment.
                         </motion.p>
@@ -299,24 +315,16 @@ const Contact = () => {
                   </motion.div>
                 </form>
                 
+                {/* Decorative coffee bean elements */}
+                <div className="absolute top-4 left-4 w-3 h-3 bg-amber-800/30 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-amber-700/40 rounded-full"></div>
+                
                 {/* Decorative wax seal */}
-                <div className="absolute -bottom-8 -right-8 w-16 h-16 flex items-center justify-center">
-                  <div className="bg-red-700 rounded-full w-16 h-16 flex items-center justify-center transform rotate-12" style={{ boxShadow: '2px 2px 5px rgba(0,0,0,0.2)' }}>
-                    <span className={`${imFellEnglish.className} text-white text-xs tracking-wide`}>B&B</span>
+                <div className="absolute -bottom-6 -right-6 w-16 h-16 flex items-center justify-center">
+                  <div className="bg-amber-800 rounded-full w-14 h-14 flex items-center justify-center transform rotate-6 shadow-md border-2 border-amber-900/30">
+                    <span className={`${imFellEnglish.className} text-amber-100 text-sm tracking-wide`}>B&B</span>
                   </div>
                 </div>
-              </div>
-              
-              {/* Bottom pattern */}
-              <div className="absolute h-16 w-full bottom-[-64px] left-0 right-0 opacity-10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                  <defs>
-                    <pattern id="pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-                      <path d="M0,12 L24,12 M12,0 L12,24" stroke="#8B6E4D" strokeWidth="1" />
-                    </pattern>
-                  </defs>
-                  <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)" />
-                </svg>
               </div>
             </div>
           </motion.div>
@@ -325,10 +333,9 @@ const Contact = () => {
       
       {/* Bottom decorative border */}
       <div className="absolute bottom-0 w-full h-8" style={{ 
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%23433b30' fill-opacity='0.1'/%3E%3C/svg%3E\")",
+        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%235d4037' fill-opacity='0.15'/%3E%3C/svg%3E\")",
         backgroundSize: "88px 12px",
         backgroundRepeat: "repeat-x",
-        opacity: 0.5,
         transform: "rotate(180deg)"
       }}></div>
     </section>

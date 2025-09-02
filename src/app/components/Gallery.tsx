@@ -152,7 +152,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className={`${abrilFatface.variable} ${bodoniModa.variable} ${oldStandard.variable}`} 
+    <section id="gallery-section" className={`${abrilFatface.variable} ${bodoniModa.variable} ${oldStandard.variable}`} 
       style={{
         background: "linear-gradient(to bottom, #f0ebe1, #e8e0d1)",
         padding: "5rem 1rem",
@@ -216,11 +216,11 @@ const Gallery = () => {
 
         {/* Gallery grid */}
         <motion.div 
-          key={animationKey} // This forces re-animation when category changes
+          key={animationKey}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
-          animate="visible" // Changed from whileInView to animate
+          animate="visible"
         >
           {filteredImages.map((image) => (
             <motion.div 
@@ -344,7 +344,8 @@ const Gallery = () => {
                   className="object-contain sepia-[0.2]"
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')] opacity-30 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4="
+                />
               </div>
             </div>
             

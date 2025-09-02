@@ -1,6 +1,14 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Abril_Fatface } from "next/font/google";
+
+// Load the same font as used for "Bean & Brew" in Header
+const abrilFatface = Abril_Fatface({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-abril",
+});
 
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState('coffee');
@@ -40,30 +48,31 @@ const MenuPage = () => {
     }
   };
 
+  // Updated menu prices based on average research (INR)
   const menuItems = {
     coffee: [
-      { name: "Classic Espresso", price: "₹3.50", description: "Rich, bold shot of pure coffee perfection", icon: "☕" },
-      { name: "Vanilla Latte", price: "₹4.75", description: "Smooth espresso with steamed milk and vanilla syrup", icon: "🤍" },
-      { name: "Caramel Macchiato", price: "₹5.25", description: "Espresso with vanilla milk and caramel drizzle", icon: "🍯" },
-      { name: "Cappuccino", price: "₹4.25", description: "Equal parts espresso, steamed milk, and foam", icon: "☁️" },
-      { name: "Mocha Delight", price: "₹5.50", description: "Espresso with chocolate syrup and whipped cream", icon: "🍫" },
-      { name: "Iced Cold Brew", price: "₹4.00", description: "Smooth, cold-steeped coffee served over ice", icon: "🧊" }
+      { name: "Classic Espresso", price: "₹120", description: "Rich, bold shot of pure coffee perfection", icon: "☕" },
+      { name: "Vanilla Latte", price: "₹180", description: "Smooth espresso with steamed milk and vanilla syrup", icon: "🤍" },
+      { name: "Caramel Macchiato", price: "₹200", description: "Espresso with vanilla milk and caramel drizzle", icon: "🍯" },
+      { name: "Cappuccino", price: "₹160", description: "Equal parts espresso, steamed milk, and foam", icon: "☁️" },
+      { name: "Mocha Delight", price: "₹210", description: "Espresso with chocolate syrup and whipped cream", icon: "🍫" },
+      { name: "Iced Cold Brew", price: "₹170", description: "Smooth, cold-steeped coffee served over ice", icon: "🧊" }
     ],
     pastries: [
-      { name: "Butter Croissant", price: "₹3.25", description: "Flaky, buttery layers of golden perfection", icon: "🥐" },
-      { name: "Chocolate Muffin", price: "₹3.75", description: "Rich chocolate muffin with chocolate chips", icon: "🧁" },
-      { name: "Blueberry Scone", price: "₹3.50", description: "Fresh blueberries in a tender, crumbly scone", icon: "🫐" },
-      { name: "Cinnamon Roll", price: "₹4.25", description: "Warm, gooey cinnamon roll with cream cheese glaze", icon: "🌀" },
-      { name: "Apple Danish", price: "₹4.00", description: "Flaky pastry with sweet apple filling", icon: "🍎" },
-      { name: "Strawberry Tart", price: "₹4.50", description: "Fresh strawberries on vanilla custard", icon: "🍓" }
+      { name: "Butter Croissant", price: "₹110", description: "Flaky, buttery layers of golden perfection", icon: "🥐" },
+      { name: "Chocolate Muffin", price: "₹100", description: "Rich chocolate muffin with chocolate chips", icon: "🧁" },
+      { name: "Blueberry Scone", price: "₹120", description: "Fresh blueberries in a tender, crumbly scone", icon: "🫐" },
+      { name: "Cinnamon Roll", price: "₹130", description: "Warm, gooey cinnamon roll with cream cheese glaze", icon: "🌀" },
+      { name: "Apple Danish", price: "₹125", description: "Flaky pastry with sweet apple filling", icon: "🍎" },
+      { name: "Strawberry Tart", price: "₹140", description: "Fresh strawberries on vanilla custard", icon: "🍓" }
     ],
     breakfast: [
-      { name: "Avocado Toast", price: "₹6.75", description: "Smashed avocado on artisan bread with everything seasoning", icon: "🥑" },
-      { name: "Breakfast Sandwich", price: "₹7.25", description: "Egg, cheese, and bacon on a fresh croissant", icon: "🥪" },
-      { name: "Yogurt Parfait", price: "₹5.50", description: "Greek yogurt with berries and granola", icon: "🍇" },
-      { name: "Oatmeal Bowl", price: "₹4.75", description: "Steel-cut oats with brown sugar and cinnamon", icon: "🥣" },
-      { name: "Bagel & Cream Cheese", price: "₹4.25", description: "Fresh bagel with our signature cream cheese", icon: "🥯" },
-      { name: "Acai Bowl", price: "₹8.50", description: "Acai blend topped with fresh fruits and granola", icon: "🍌" }
+      { name: "Avocado Toast", price: "₹220", description: "Smashed avocado on artisan bread with everything seasoning", icon: "🥑" },
+      { name: "Breakfast Sandwich", price: "₹180", description: "Egg, cheese, and bacon on a fresh croissant", icon: "🥪" },
+      { name: "Yogurt Parfait", price: "₹150", description: "Greek yogurt with berries and granola", icon: "🍇" },
+      { name: "Oatmeal Bowl", price: "₹120", description: "Steel-cut oats with brown sugar and cinnamon", icon: "🥣" },
+      { name: "Bagel & Cream Cheese", price: "₹110", description: "Fresh bagel with our signature cream cheese", icon: "🥯" },
+      { name: "Acai Bowl", price: "₹250", description: "Acai blend topped with fresh fruits and granola", icon: "🍌" }
     ]
   };
 
@@ -74,21 +83,24 @@ const MenuPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
+    <div
+      id="menu"
+      className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
+        <motion.div
           variants={floatingVariants}
           animate="animate"
           className="absolute top-20 left-10 w-20 h-20 bg-orange-200 rounded-full opacity-20"
         />
-        <motion.div 
+        <motion.div
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: "2s" }}
           className="absolute top-40 right-20 w-16 h-16 bg-amber-300 rounded-full opacity-15"
         />
-        <motion.div 
+        <motion.div
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: "4s" }}
@@ -97,22 +109,22 @@ const MenuPage = () => {
       </div>
 
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center py-16"
       >
-        <h1 className="text-5xl lg:text-6xl font-bold text-amber-900 mb-4">
+        <h1 className={`${abrilFatface.className} text-5xl lg:text-6xl font-bold text-amber-900 mb-4`}>
           Our <span className="text-orange-700">Delicious</span> Menu
         </h1>
-        <p className="text-lg text-amber-800 max-w-2xl mx-auto px-6">
+         <p className="text-lg text-amber-800 max-w-2xl mx-auto px-6">
           Discover our carefully crafted selection of premium coffees and .n baked treats
         </p>
       </motion.div>
 
       {/* Category Navigation */}
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -140,27 +152,32 @@ const MenuPage = () => {
       </motion.div>
 
       {/* Menu Items Grid */}
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 container mx-auto px-24 pb-20"
+        className="relative z-10 container mx-auto px-4 md:px-12 lg:px-24 pb-20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {menuItems[activeCategory].map((item, index) => (
             <motion.div
               key={item.name}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.03, 
+              whileHover={{
+                scale: 1.03,
                 y: -5,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                boxShadow: "0 20px 40px rgba(140,109,77,0.13)"
               }}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-amber-100 relative overflow-hidden"
+              className="rounded-2xl p-6 shadow-lg border border-amber-100 relative overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, #f8f3e9 70%, #f3ebd7 100%)",
+                boxShadow: "0 8px 32px 0 rgba(140,109,77,0.07)",
+                border: "1.5px solid #e2cfa7"
+              }}
             >
               {/* Cute decorative corner */}
-              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-30"></div>
-              
+              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-20"></div>
+
               {/* Item icon with animation */}
               <motion.div
                 animate={{
@@ -178,26 +195,18 @@ const MenuPage = () => {
                 {item.icon}
               </motion.div>
 
-              <h3 className="text-xl font-bold text-amber-900 mb-2 relative z-10">
+              <h3 className={`${abrilFatface.className} text-xl font-bold text-amber-900 mb-2 relative z-10`}>
                 {item.name}
               </h3>
-              
+
               <p className="text-amber-700 mb-4 text-sm leading-relaxed relative z-10">
                 {item.description}
               </p>
-              
+
               <div className="flex items-center justify-between relative z-10">
                 <span className="text-2xl font-bold text-orange-700">
                   {item.price}
                 </span>
-                
-                {/* <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg font-medium text-sm hover:from-amber-700 hover:to-orange-700 transition-all shadow-md"
-                >
-                  Add to Cart
-                </motion.button> */}
               </div>
 
               {/* Floating sparkle animation */}
