@@ -12,7 +12,7 @@ const abrilFatface = Abril_Fatface({
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeHover, setActiveHover] = useState(null);
+  const [activeHover, setActiveHover] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Header = () => {
   }, []);
 
   // Scroll to component function
-  const scrollToComponent = (componentId) => {
+  const scrollToComponent = (componentId:string) => {
     const element = document.getElementById(componentId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
