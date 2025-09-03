@@ -135,6 +135,12 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-amber-700 text-cream-50 rounded-lg font-semibold text-lg hover:bg-amber-800 transition-colors shadow-lg"
+                onClick={() => {
+                  const menuSection = document.getElementById("menu");
+                  if (menuSection) {
+                    menuSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
               >
                 Explore Menu
               </motion.button>

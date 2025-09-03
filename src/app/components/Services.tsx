@@ -278,7 +278,7 @@ const CutePartyHat = () => (
 const Services = () => {
   return (
     <section
-      id="services"
+      id="services-section" // CHANGED FROM "services" TO "services-section"
       className={`${playfair.variable} ${cormorant.variable} ${dancingScript.variable} py-20 px-4 md:px-8 lg:px-16 relative overflow-hidden`}
       style={{
         background: "linear-gradient(to bottom, #f8f3e9, #f3ebd7)",
@@ -620,7 +620,7 @@ const Services = () => {
             whileTap={{ scale: 0.98 }}
             onClick={() => {
               document
-                .getElementById("contact")
+                .getElementById("contact-section")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
             onMouseOver={(e) => {
@@ -689,7 +689,7 @@ const Services = () => {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-    <div className="text-4xl">🌟</div>
+            <div className="text-4xl">🌟</div>
           </motion.div>
         </motion.div>
       </div>
