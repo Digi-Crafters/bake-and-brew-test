@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Abril_Fatface } from "next/font/google";
+import type { Variants } from 'framer-motion';
 
 // Load the same font as used for "Bean & Brew" in Header
 const abrilFatface = Abril_Fatface({
@@ -10,10 +11,12 @@ const abrilFatface = Abril_Fatface({
   variable: "--font-abril",
 });
 
-const MenuPage = () => {
-  const [activeCategory, setActiveCategory] = useState('coffee');
+type CategoryKey = 'coffee' | 'pastries' | 'breakfast';
 
-  const containerVariants = {
+const MenuPage = () => {
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('coffee');
+
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,7 +27,7 @@ const MenuPage = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -36,7 +39,7 @@ const MenuPage = () => {
     }
   };
 
-  const floatingVariants = {
+  const floatingVariants: Variants = {
     animate: {
       y: [-10, 10, -10],
       rotate: [0, 2, -2, 0],
@@ -76,7 +79,7 @@ const MenuPage = () => {
     ]
   };
 
-  const categories = [
+  const categories: { id: CategoryKey; name: string; icon: string }[] = [
     { id: 'coffee', name: 'Coffee & Beverages', icon: '☕' },
     { id: 'pastries', name: 'Fresh Pastries', icon: '🥐' },
     { id: 'breakfast', name: 'Breakfast Items', icon: '🍳' }

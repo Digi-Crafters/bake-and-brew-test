@@ -6,6 +6,7 @@ import {
   Cormorant_Garamond,
   Dancing_Script,
 } from "next/font/google";
+import type { Variants } from "framer-motion";
 
 // Load Google Fonts
 const playfair = Playfair_Display({
@@ -73,7 +74,7 @@ const services = [
 ];
 
 // Animation variants
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -83,7 +84,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 50, opacity: 0, scale: 0.9 },
   visible: {
     y: 0,
@@ -96,7 +97,7 @@ const itemVariants = {
   },
 };
 
-const cardHoverVariants = {
+const cardHoverVariants: Variants = {
   hover: {
     y: -15,
     scale: 1.02,
@@ -108,7 +109,7 @@ const cardHoverVariants = {
   },
 };
 
-const floatingVariants = {
+const floatingVariants: Variants = {
   animate: {
     y: [-5, 5, -5],
     x: [-2, 2, -2],
